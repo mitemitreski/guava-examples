@@ -10,6 +10,7 @@ import org.junit.Test;
 import com.google.common.collect.Constraints;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
+import com.mitemitreski.blog.example.bean.Customer;
 
 
 public class CollectionTest {
