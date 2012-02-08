@@ -6,6 +6,8 @@ public class Customer {
 
   private Integer id;
   private String name;
+  private String adress;
+  private String url;
 
   public Customer(Integer id, String name) {
     this.id = id;
@@ -20,15 +22,71 @@ public class Customer {
 
   @Override
   public int hashCode() {
-    return Objects.hashCode(id, name);
+
+    return Objects.hashCode(name, adress, url);
+  }
+
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (!(obj instanceof Customer)) {
+      return false;
+    }
+    Customer other = (Customer) obj;
+    if (adress == null) {
+      if (other.adress != null) {
+        return false;
+      }
+    } else if (!adress.equals(other.adress)) {
+      return false;
+    }
+    if (id == null) {
+      if (other.id != null) {
+        return false;
+      }
+    } else if (!id.equals(other.id)) {
+      return false;
+    }
+    if (name == null) {
+      if (other.name != null) {
+        return false;
+      }
+    } else if (!name.equals(other.name)) {
+      return false;
+    }
+    if (url == null) {
+      if (other.url != null) {
+        return false;
+      }
+    } else if (!url.equals(other.url)) {
+      return false;
+    }
+    return true;
   }
 
 
   @Override
   public String toString() {
-    return name + " (id " + id + ")";
+    return Objects.toStringHelper(this).add("x", 1).toString();
   }
 
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
   public Integer getId() {
     return id;
