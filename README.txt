@@ -10,4 +10,4 @@ The best way to try them out for yourself is to:
 
 Original slides with examples: http://blog.tfnico.com/2010/06/google-guava-taking-over-for-google.html
 
-Slides from com.mitemitreski.blog.example : TODO
+Slides from  http://blog.mitemitreski.com/2012/07/google-guava-for-cleaner-code.html
