@@ -1,25 +1,16 @@
 package com.tfnico.examples.guava;
 
+import com.google.common.base.*;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.ImmutableList;
+import org.junit.Test;
+
+import java.util.Collection;
+
 import static com.google.common.collect.Collections2.filter;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-
-import java.util.Collection;
-import java.util.SortedMap;
-import java.util.TreeMap;
-
-import org.junit.Test;
-
-import com.google.common.base.Ascii;
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Function;
-import com.google.common.base.Predicates;
-import com.google.common.base.Supplier;
-import com.google.common.base.Suppliers;
-import com.google.common.collect.Collections2;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.SortedMaps;
 
 
 public class NewStuffInR08Test {
@@ -53,19 +44,6 @@ public class NewStuffInR08Test {
     ImmutableList<Supplier<Ingredients>> twoFactories = ImmutableList.of(factory1, factory2);
     Collection<Ingredients> twoIngredients = Collections2.transform(twoFactories, supplierFunction);
   }
-
-  @Test
-  public void filterAwayNullMapValues() {
-    SortedMap<String, String> map = new TreeMap<String, String>();
-    map.put("1", "one");
-    map.put("2", "two");
-    map.put("3", null);
-    map.put("4", "four");
-
-    SortedMap<String, String> filtered = SortedMaps.filterValues(map, Predicates.notNull());
-    assertThat(filtered.size(), is(3)); // null entry for "3" is gone!
-  }
-
 
   static Character[] charArray(Collection<Character> filter) {
     return filter.toArray(new Character[0]);

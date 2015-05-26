@@ -1,12 +1,11 @@
 package com.tfnico.examples.guava;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
-import org.junit.Test;
-
 import com.google.common.base.Throwables;
 import com.google.common.net.InetAddresses;
+import org.junit.Test;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 
 public class NetTest {

@@ -1,10 +1,9 @@
 package com.mitemitreski.blog.example.guava;
 
-import org.junit.Test;
-
 import com.google.common.base.Joiner;
-import com.google.common.base.Splitter; 
-import com.google.common.collect.*;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSet;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 

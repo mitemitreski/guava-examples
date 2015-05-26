@@ -9,12 +9,11 @@
  */
 package com.mitemitreski.blog.example.guava;
 
-import java.net.URL;
-
-import org.junit.Test;
-
 import com.google.common.base.Preconditions;
 import com.google.common.io.Resources;
+import org.junit.Test;
+
+import java.net.URL;
 
 
 public class Others {

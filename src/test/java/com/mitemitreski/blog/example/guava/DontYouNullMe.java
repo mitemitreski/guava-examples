@@ -1,18 +1,12 @@
 package com.mitemitreski.blog.example.guava;
 
-import org.junit.Assert;
-import org.junit.Test;
-
 import com.google.common.base.Objects;
 import com.google.common.base.Optional;
 import com.google.common.base.Strings;
 import com.mitemitreski.blog.example.bean.Customer;
+import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
-
-import static org.junit.Assert.assertNotNull;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 
 public class DontYouNullMe {
@@ -30,19 +24,18 @@ public class DontYouNullMe {
   }
 
   @Test
+  public void testNeverNullWithoutGuava() {
+    Integer defaultId = null;
+    Integer id = theUnknowMan.getId() != null ? theUnknowMan.getId() : defaultId;
+    assertNotNull(id);
+  }
+
+  @Test
   public void firstNotNull() {
     Integer a = Objects.firstNonNull(null, 3);// will evaluate to 3
     Integer b = Objects.firstNonNull(9, 3);// //will evaluate to 9
     assertEquals(Integer.valueOf(3), a);
     assertEquals(Integer.valueOf(9), b);
-  }
-
-
-  @Test
-  public void testNeverNullWithoutGuava() {
-    Integer defaultId = null;
-    Integer id = theUnknowMan.getId() != null ? theUnknowMan.getId() : defaultId;
-    assertNotNull(id);
   }
 
   @Test(expected = NullPointerException.class)
@@ -64,4 +57,5 @@ public class DontYouNullMe {
     assertTrue(isIt);
     assertTrue(isItWithG);
   }
+
 }

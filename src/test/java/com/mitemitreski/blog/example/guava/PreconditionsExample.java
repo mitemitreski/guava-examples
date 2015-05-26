@@ -1,9 +1,9 @@
 package com.mitemitreski.blog.example.guava;
 
+import com.mitemitreski.blog.example.bean.Customer;
 import org.junit.Test;
 
 import static com.google.common.base.Preconditions.*;
-import com.mitemitreski.blog.example.bean.Customer;
 
 public class PreconditionsExample {
 

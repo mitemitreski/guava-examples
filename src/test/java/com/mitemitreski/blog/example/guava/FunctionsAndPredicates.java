@@ -9,18 +9,18 @@
  */
 package com.mitemitreski.blog.example.guava;
 
-import java.util.SortedMap;
-import java.util.TreeMap;
-
-import org.junit.Test;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
-import com.google.common.collect.SortedMaps;
+import com.google.common.collect.Maps;
+import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 
@@ -43,16 +43,24 @@ public class FunctionsAndPredicates {
     };
 
   }
-  
+
+
+  @Test
+  public void simpleTestJava8() {
+    Function<String, Integer> lengthFunction = String::length;
+    Predicate<String> allCaps = CharMatcher.JAVA_UPPER_CASE::matchesAllOf;
+
+  }
+
 
   @Test
   public void filterAwayNullMapValues() {
-    SortedMap<String, String> map = new TreeMap<String, String>();
+    SortedMap<String, String> map = new TreeMap<>();
     map.put("1", "one");
     map.put("2", "two");
     map.put("3", null);
     map.put("4", "four");
-    SortedMap<String, String> filtered = SortedMaps.filterValues(map, Predicates.notNull());
+    SortedMap<String, String> filtered = Maps.filterValues(map, Predicates.notNull());
     assertThat(filtered.size(), is(3)); // null entry for "3" is gone!
   }
 

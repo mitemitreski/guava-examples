@@ -9,21 +9,16 @@
  */
 package com.mitemitreski.blog.example.guava;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import org.junit.Test;
-
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.common.primitives.Ints;
 import com.mitemitreski.blog.example.bean.Customer;
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class CollectiionsExamples {
@@ -40,7 +35,7 @@ public class CollectiionsExamples {
     ImmutableMap<String, String> map = ImmutableMap.of("key1", "value1", "key2", "value2");
     //list of ints
     List<Integer> theList = Ints.asList(1, 2, 3, 4, 522, 5, 6);
-    
+
   }
 
   @Test
@@ -52,27 +47,19 @@ public class CollectiionsExamples {
     map.get("asd");
   }
 
+
   @Test
-  public void someTest() {
-
-    Cache<Integer, Customer> cache = CacheBuilder.newBuilder()
-        .weakKeys()
-        .maximumSize(10000)
-        .expireAfterWrite(10, TimeUnit.MINUTES)
-        .build(new CacheLoader<Integer, Customer>() {
-
-          @Override
-          public Customer load(Integer key) throws Exception {
-
-            return retreveCustomerForKey(key);
-          }
-
-
-        });
-
-    // .removalListener(MY_LISTENER)
-
-    cache.size();
-
+  public void var() {
+    // oldway
+    Map<String, Map<Long, List<String>>> mapOld = new HashMap<String, Map<Long, List<String>>>();
+    // the guava way
+    Map<String, Map<Long, List<String>>> map = Maps.newHashMap();
+    // list
+    ImmutableList<String> of = ImmutableList.of("a", "b", "c");
+    // Same one for map
+    ImmutableMap<String, String> theMap = ImmutableMap.of("key1", "value1", "key2", "value2");
+    //list of ints
+    List<Integer> theList = Ints.asList(1, 2, 3, 4, 522, 5, 6);
   }
+
 }

@@ -1,34 +1,15 @@
 package com.tfnico.examples.guava;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import com.google.common.base.*;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterables;
+import com.mitemitreski.blog.example.bean.Customer;
+import org.junit.Test;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;
 
-import org.junit.Test;
-
-import com.google.common.base.Charsets;
-import com.google.common.base.Defaults;
-
-import com.google.common.base.Equivalences;
-import com.google.common.base.Function;
-import com.google.common.base.Functions;
-import com.google.common.base.Joiner;
-import com.google.common.base.Objects;
-import com.google.common.base.Preconditions;
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
-import com.google.common.base.Splitter;
-import com.google.common.base.Strings;
-import com.google.common.base.Supplier;
-import com.google.common.base.Suppliers;
-import com.google.common.base.Throwables;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
-import com.mitemitreski.blog.example.bean.Customer;
+import static org.junit.Assert.*;
 
 public class BaseTest {
 
@@ -43,20 +24,13 @@ public class BaseTest {
     assertEquals(0, defaultValue.intValue());
   }
 
-  @Test
-  public void equalityAndIdentity() {
-    // These could be useful for building equals methods
-    assertFalse(Equivalences.equals().equivalent("you", null));
-    assertTrue(Equivalences.identity().equivalent("hey", "hey"));
-  }
-
 
   @Test
   public void moreFunWithStrings() {
     assertNull(Strings.emptyToNull(""));
     assertEquals("", Strings.nullToEmpty(null));
     assertTrue(Strings.isNullOrEmpty("")); // About the only thing we ever
-                                           // used in commons-lang? :)
+    // used in commons-lang? :)
     assertEquals("oioioi", Strings.repeat("oi", 3));
     assertEquals("Too short      ", Strings.padEnd("Too short", 15, ' '));
   }
@@ -158,29 +132,6 @@ public class BaseTest {
 
     assertEquals(3, ingredientsFactory.getNumberOfIngredientsUsed());
 
-  }
-
-  @Test
-  public void someThrowables() {
-    try {
-      try {
-        Integer.parseInt("abc");
-      } catch (RuntimeException e) {
-        if (e instanceof ClassCastException)
-          throw e; // old-style
-        Throwables.propagateIfInstanceOf(e, NumberFormatException.class); // the same
-        Throwables.propagateIfPossible(e); // Propagates if it is Error or RuntimeException
-        try {
-          Throwables.throwCause(e, true);
-        } catch (Exception e1) {
-          Throwables.propagate(e1); // Wraps if its a checked exception, or lets it flow if not
-        }
-      }
-    } catch (RuntimeException e) {
-      Throwables.getCausalChain(e);
-      Throwables.getRootCause(e);
-      Throwables.getStackTraceAsString(e);
-    }
   }
 
 
