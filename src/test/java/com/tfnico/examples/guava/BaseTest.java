@@ -79,13 +79,6 @@ public class BaseTest {
         "We couldn't find the description for customer with id %s", lisa.getId());
   }
 
-  @Test
-  public void someFunctions() {
-    assertEquals("Bob (id 1)", bob.toString());
-
-    Function<Object, String> toStringFunction = Functions.toStringFunction();
-    assertEquals("Bob (id 1)", toStringFunction.apply(bob));
-  }
 
   @Test
   public void fancierFunctions() {

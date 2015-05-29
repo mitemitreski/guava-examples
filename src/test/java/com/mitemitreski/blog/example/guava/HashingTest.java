@@ -1,6 +1,7 @@
 package com.mitemitreski.blog.example.guava;
 
 import com.google.common.base.Charsets;
+import com.google.common.base.MoreObjects;
 import com.google.common.collect.Lists;
 import com.google.common.hash.*;
 import com.mitemitreski.blog.example.bean.Customer;
@@ -19,9 +20,9 @@ public class HashingTest {
 
     Customer c = new Customer();
     Funnel<? super Customer> customerFunnel = (from, into) -> {
-      into.putString(from.getName(), Charsets.UTF_8);
-      into.putString(from.getUrl(), Charsets.UTF_8);
-      into.putInt(from.getId());
+      into.putString(MoreObjects.firstNonNull(from.getName(), ""), Charsets.UTF_8);
+      into.putString(MoreObjects.firstNonNull(from.getUrl(), ""), Charsets.UTF_8);
+      into.putInt(MoreObjects.firstNonNull(from.getId(), 1));
     };
 
 
