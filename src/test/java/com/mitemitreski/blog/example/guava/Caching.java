@@ -6,9 +6,6 @@ import org.junit.Test;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by mite on 5/26/15.
- */
 public class Caching {
 
 

@@ -9,9 +9,6 @@ import org.junit.Test;
 
 import java.util.List;
 
-/**
- * Created by mite on 5/26/15.
- */
 public class HashingTest {
 
   @Test

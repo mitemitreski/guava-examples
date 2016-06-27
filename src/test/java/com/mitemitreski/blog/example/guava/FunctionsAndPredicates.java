@@ -26,7 +26,6 @@ import static org.junit.Assert.assertThat;
 
 public class FunctionsAndPredicates {
 
-
   @Test
   public void simpleTest() {
     Function<String, Integer> lengthFunction = new Function<String, Integer>() {

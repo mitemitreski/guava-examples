@@ -5,9 +5,6 @@ import com.google.common.collect.Ordering;
 import com.mitemitreski.blog.example.bean.Customer;
 import org.junit.Test;
 
-/**
- * Created by mite on 5/25/15.
- */
 public class OrderingTest {
 
   @Test

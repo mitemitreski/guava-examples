@@ -6,7 +6,7 @@ public class Customer {
 
   private Integer id;
   private String name;
-  private String adress;
+  private String address;
   private String url;
 
   public Customer(Integer id, String name) {
@@ -22,8 +22,7 @@ public class Customer {
 
   @Override
   public int hashCode() {
-
-    return Objects.hashCode(name, adress, url);
+    return Objects.hashCode(name, address, url);
   }
 
 
@@ -39,11 +38,11 @@ public class Customer {
       return false;
     }
     Customer other = (Customer) obj;
-    if (adress == null) {
-      if (other.adress != null) {
+    if (address == null) {
+      if (other.address != null) {
         return false;
       }
-    } else if (!adress.equals(other.adress)) {
+    } else if (!address.equals(other.address)) {
       return false;
     }
     if (id == null) {
